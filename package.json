@@ -6,21 +6,31 @@
     "react-scripts": "1.0.0"
   },
   "dependencies": {
+    "enzyme": "^2.8.2",
+    "install": "^0.10.1",
+    "node-sass-chokidar": "^0.0.2",
+    "npm-run-all": "^4.0.2",
+    "prop-types": "^15.5.10",
     "react": "^15.5.4",
+    "react-addons-test-utils": "^15.5.1",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.5",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "react-router-redux": "next",
     "redux": "^3.6.0",
+    "redux-actions": "^2.0.3",
     "redux-thunk": "^2.2.0",
     "sanitize.css": "^5.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build": "npm run build-css && react-scripts build"
   },
   "homepage": "https://cra-redux-router-thunk.herokuapp.com"
 }
