@@ -1,3 +1,90 @@
+@import url("https://fonts.googleapis.com/css?family=Crimson+Text|Nunito:700");
+.nav {
+  margin-bottom: 2rem; }
+  .nav .button-space {
+    margin-left: 0.5rem; }
+
+.Button {
+  border: none;
+  border-radius: 99rem;
+  padding: 0.35rem 1.25rem;
+  outline: none;
+  background-color: white;
+  color: #393939;
+  border: 2px solid #393939;
+  transition: 0.15s;
+  font-family: 'Nunito', sans-serif; }
+  .Button:hover {
+    cursor: pointer;
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2);
+    transition: 0.15s; }
+
+.active {
+  background-color: #393939;
+  color: white;
+  transition: 0.15s; }
+
+.start-listening {
+  margin-bottom: 2rem; }
+  .start-listening .listening {
+    background-color: #F05858;
+    border: 2px solid #F05858; }
+  .start-listening:hover {
+    background-color: #F05858;
+    border: 2px solid #F05858; }
+
+.text-area {
+  width: 100%;
+  height: 70vh;
+  padding-bottom: 10rem;
+  border: none;
+  resize: none;
+  font-size: 1.35rem;
+  line-height: 1.8rem;
+  outline: none;
+  font-family: 'Crimson', serif; }
+
+.subconscious {
+  display: flex;
+  justify-content: center;
+  width: calc(100% - 4rem);
+  position: fixed;
+  bottom: 0;
+  border-radius: 1rem 1rem 0 0;
+  background-color: #393939; }
+  .subconscious .word-count-btn {
+    position: relative;
+    top: -1rem; }
+    .subconscious .word-count-btn:hover {
+      box-shadow: none;
+      cursor: auto; }
+  .subconscious .completed-words {
+    background-color: #65D66D;
+    border: 2px solid #65D66D;
+    color: white;
+    transition: 0.15s; }
+    .subconscious .completed-words:hover {
+      cursor: pointer;
+      box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2); }
+    .subconscious .completed-words:after {
+      content: ': explore your subconscious'; }
+
 body {
   font-size: 18px;
-  color: blue; }
+  color: #393939;
+  font-family: 'Nunito', sans-serif;
+  padding: 2rem; }
+
+.logo {
+  width: 6rem; }
+
+.displayFlexHorizontal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+
+.displayFlexCenter {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center; }

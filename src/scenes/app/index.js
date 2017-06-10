@@ -1,20 +1,77 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom'
-import Home from '../home'
-import About from '../about'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import Talk from '../talk'
+import Write from '../write'
+import SubConscious from '../subconscious'
+import Logo from '../../images/vent-logo-wiggly.svg'
+import Button from '../../components/Button'
+import { selectTalk, selectWrite } from '../../state/nav/actions'
+import { setTextContent } from '../../state/text/actions'
 
-const App = () => (
+const mapStateToProps = (state) => {
+  return {
+    talk: state.nav.talk,
+    write: state.nav.write,
+    content: state.text.content,
+    wordCount: state.text.wordCount
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    selectTalk: () => {
+      dispatch(selectTalk())
+    },
+    selectWrite: () => {
+      dispatch(selectWrite())
+    },
+    setTextContent: (content) => {
+      dispatch(setTextContent({ content }))
+    }
+  }
+}
+
+const propTypes = {
+  selectWrite: PropTypes.func,
+  selectTalk: PropTypes.func
+}
+
+const App = (props) => (
   <div>
-    <header>
-      <Link to="/">Home</Link>
-      <Link to="/about-us">About</Link>
+    <header className="nav displayFlexHorizontal">
+      <img src={Logo} className="logo" alt="logo" />
+      <div>
+        <Button
+          className="button-space"
+          active={props.talk}
+          onClick={props.selectTalk}
+          >
+          talk
+        </Button>
+        <Button
+          className="button-space"
+          active={props.write}
+          onClick={props.selectWrite}
+          >
+          write
+        </Button>
+      </div>
     </header>
 
     <main>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/about-us" component={About} />
+      {props.talk ?
+        <Talk /> :
+        <Write onChange={props.setTextContent} content={props.content}/>
+      }
+      <SubConscious wordCount={props.wordCount} />
     </main>
   </div>
 )
 
-export default App
+App.propTypes = propTypes
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App)

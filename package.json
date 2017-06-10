@@ -6,6 +6,7 @@
     "react-scripts": "1.0.0"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "enzyme": "^2.8.2",
     "install": "^0.10.1",
     "node-sass-chokidar": "^0.0.2",
