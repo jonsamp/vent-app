@@ -7,11 +7,18 @@ const sentiment = handleActions({
       ...state,
       ...payload
     }
+  },
+  [actions.toggleSubsonsciousModal]: (state) => {
+    return {
+      ...state,
+      modalOpen: !state.modalOpen
+    }
   }
 }, {
   analysis: {},
   loading: false,
-  error: null
+  error: null,
+  modalOpen: false
 })
 
 export default sentiment

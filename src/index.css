@@ -1,4 +1,19 @@
 @import url("https://fonts.googleapis.com/css?family=Crimson+Text|Nunito:700");
+.spinner {
+  animation-name: spinner;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-duration: 0.5s;
+  position: relative;
+  top: -0.15rem;
+  color: white; }
+
+@keyframes spinner {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+
 .nav {
   margin-bottom: 2rem; }
   .nav .button-space {
@@ -66,17 +81,25 @@
     cursor: not-allowed; }
 
 .subconscious {
-  display: flex;
-  justify-content: center;
   width: calc(100% - 4rem);
   max-width: 56rem;
+  height: 5%;
   position: fixed;
   bottom: 0;
   border-radius: 1rem 1rem 0 0;
-  background-color: #393939; }
+  background-color: #393939;
+  transition: 0.5s ease-in;
+  color: white;
+  padding: 0 4rem 2rem 4rem; }
+  .subconscious .your-subsonscious {
+    width: 100%;
+    overflow: auto; }
   .subconscious .word-count-btn {
     position: relative;
-    top: -1rem; }
+    top: -1rem;
+    min-width: 50%;
+    left: 25%;
+    margin: auto; }
     .subconscious .word-count-btn:hover {
       box-shadow: none;
       cursor: auto; }
@@ -88,8 +111,118 @@
     .subconscious .completed-words:hover {
       cursor: pointer;
       box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2); }
-    .subconscious .completed-words:after {
-      content: ': explore your subconscious'; }
+  .subconscious.opened {
+    height: 85%;
+    transition: 0.35s cubic-bezier(0.475, 0.055, 0.75, 0.75);
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2);
+    overflow: auto;
+    padding-bottom: 5rem; }
+    .subconscious.opened .word-count-btn {
+      height: 2.16rem;
+      transition: 0.35s;
+      opacity: 0; }
+  .subconscious .tone-group {
+    margin-bottom: 4rem; }
+  .subconscious .tone {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+    .subconscious .tone .tone-title {
+      flex: 1.5;
+      text-align: right;
+      padding-right: 1rem; }
+      .subconscious .tone .tone-title.extra-label-width {
+        flex: 2.5; }
+    .subconscious .tone .overlayed-bars {
+      flex: 6; }
+    .subconscious .tone .overlay {
+      position: relative;
+      top: 0.75rem;
+      z-index: 1; }
+    .subconscious .tone .underlay {
+      position: relative;
+      top: -0.75rem;
+      z-index: 0; }
+    .subconscious .tone .bar {
+      width: 100%;
+      height: 1.5rem;
+      background-color: #141414;
+      border-radius: 99rem; }
+    .subconscious .tone .anger {
+      background-color: #F05858; }
+    .subconscious .tone .analytical {
+      background-color: #f48787; }
+    .subconscious .tone .confident {
+      background-color: #ac8be4; }
+    .subconscious .tone .tentative {
+      background-color: #8de193; }
+    .subconscious .tone .disgust {
+      background-color: #8E62DA; }
+    .subconscious .tone .fear {
+      background-color: #65D66D; }
+    .subconscious .tone .joy {
+      background-color: #FFE25E; }
+    .subconscious .tone .sadness {
+      background-color: #5FC3FF; }
+    .subconscious .tone .openness_big5 {
+      background-color: #ffd92b;
+      filter: saturate(60%); }
+    .subconscious .tone .conscientiousness_big5 {
+      background-color: #7039d0;
+      filter: saturate(60%); }
+    .subconscious .tone .extraversion_big5 {
+      background-color: #ec2929;
+      filter: saturate(60%); }
+    .subconscious .tone .agreeableness_big5 {
+      background-color: #2cb0ff;
+      filter: saturate(60%); }
+    .subconscious .tone .emotional_range_big5 {
+      background-color: #3dcb47;
+      filter: saturate(60%); }
+  .subconscious .orb-wrapper {
+    background-color: white;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 100%;
+    position: relative;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .subconscious .orb {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 100%;
+    position: absolute; }
+    .subconscious .orb.anger {
+      background-color: #F05858;
+      mix-blend-mode: multiply;
+      margin-top: -1rem; }
+    .subconscious .orb.disgust {
+      background-color: #8E62DA;
+      mix-blend-mode: multiply;
+      margin-left: -1rem;
+      margin-top: -0.5rem; }
+    .subconscious .orb.fear {
+      background-color: #65D66D;
+      mix-blend-mode: multiply;
+      margin-left: 1.5rem;
+      margin-top: -0.5rem; }
+    .subconscious .orb.joy {
+      background-color: #FFE25E;
+      mix-blend-mode: multiply;
+      margin-top: 0.5rem;
+      margin-left: 1.25rem; }
+    .subconscious .orb.sadness {
+      background-color: #5FC3FF;
+      mix-blend-mode: multiply;
+      margin-top: 0.5rem;
+      margin-left: -0.5rem; }
+  .subconscious .summary {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 1rem 0; }
 
 body {
   font-size: 18px;

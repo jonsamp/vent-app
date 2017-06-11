@@ -9,7 +9,7 @@ import Button from '../../components/Button'
 import { selectTalk, selectWrite } from '../../state/nav/actions'
 import { setTextContent } from '../../state/text/actions'
 import { startListening, stopListening, setTranscriptContent } from '../../state/speech/actions'
-import { getSentimentAnalysis } from '../../state/sentiment/actions'
+import { getSentimentAnalysis, toggleSubsonsciousModal } from '../../state/sentiment/actions'
 
 const mapStateToProps = (state) => {
   return {
@@ -31,7 +31,8 @@ const mapDispatchToProps = (dispatch) => {
     startListening: () => dispatch(startListening()),
     stopListening: () => dispatch(stopListening()),
     setTranscriptContent: spokenText => dispatch(setTranscriptContent({ spokenText })),
-    getSentimentAnalysis: content => dispatch(getSentimentAnalysis({ content }))
+    getSentimentAnalysis: content => dispatch(getSentimentAnalysis({ content })),
+    toggleSubsonsciousModal: () => dispatch(toggleSubsonsciousModal())
   }
 }
 

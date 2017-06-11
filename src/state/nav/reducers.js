@@ -15,8 +15,8 @@ const nav = handleActions({
     }
   }
 }, {
-  talk: true,
-  write: false
+  talk: false,
+  write: true
 })
 
 export default nav

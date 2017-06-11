@@ -1,16 +1,26 @@
 .subconscious {
-  display: flex;
-  justify-content: center;
   width: calc(100% - 4rem);
   max-width: 56rem;
+  height: 5%;
   position: fixed;
   bottom: 0;
   border-radius: 1rem 1rem 0 0;
   background-color: $primary;
+  transition: 0.5s ease-in;
+  color: white;
+  padding: 0 4rem 2rem 4rem;
+
+  .your-subsonscious {
+    width: 100%;
+    overflow: auto;
+  }
 
   .word-count-btn {
     position: relative;
     top: -1rem;
+    min-width: 50%;
+    left: 25%;
+    margin: auto;
 
     &:hover {
       box-shadow: none;
@@ -28,9 +38,180 @@
       cursor: pointer;
       box-shadow: 0 0 8px 2px rgba(0,0,0,.2);
     }
+  }
 
-    &:after {
-      content: ': explore your subconscious'
+  &.opened {
+    height: 85%;
+    transition: 0.35s cubic-bezier(0.475, 0.055, 0.750, 0.750);
+    box-shadow: 0 0 8px 2px rgba(0,0,0,.2);
+    overflow: auto;
+    padding-bottom: 5rem;
+
+    .word-count-btn {
+      height: 2.16rem;
+      transition: 0.35s;
+      opacity: 0;
     }
+  }
+
+  .tone-group {
+    margin-bottom: 4rem;
+  }
+
+  .tone {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .tone-title {
+      flex: 1.5;
+      text-align: right;
+      padding-right: 1rem;
+
+      &.extra-label-width {
+        flex: 2.5;
+      }
+    }
+
+    .overlayed-bars {
+      flex: 6;
+    }
+
+    .overlay {
+      position: relative;
+      top: 0.75rem;
+      z-index: 1;
+    }
+
+    .underlay {
+      position: relative;
+      top: -0.75rem;
+      z-index: 0;
+    }
+
+    .bar {
+      width: 100%;
+      height: 1.5rem;
+      background-color: $font-color;
+      border-radius: 99rem
+    }
+
+    .anger {
+      background-color: $anger;
+    }
+
+    .analytical {
+      background-color: lighten($anger, 10%);
+    }
+
+    .confident {
+      background-color: lighten($disgust, 10%);
+    }
+
+    .tentative {
+      background-color: lighten($fear, 10%);
+    }
+
+    .disgust {
+      background-color: $disgust;
+    }
+
+    .fear {
+      background-color: $fear;
+    }
+
+    .joy {
+      background-color: $joy;
+    }
+
+    .sadness {
+      background-color: $sadness;
+    }
+
+    .openness_big5 {
+      background-color: darken($joy, 10%);
+      filter: saturate(60%);
+    }
+
+    .conscientiousness_big5 {
+      background-color: darken($disgust, 10%);
+      filter: saturate(60%);
+    }
+
+    .extraversion_big5 {
+      background-color: darken($anger, 10%);
+      filter: saturate(60%);
+    }
+
+    .agreeableness_big5 {
+      background-color: darken($sadness, 10%);
+      filter: saturate(60%);
+    }
+
+    .emotional_range_big5 {
+      background-color: darken($fear, 10%);
+      filter: saturate(60%);
+    }
+  }
+
+  .orb-wrapper {
+    background-color: white;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 100%;
+    position: relative;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .orb {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 100%;
+    position: absolute;
+
+    &.anger {
+      background-color: $anger;
+      mix-blend-mode: multiply;
+      margin-top: -1rem;
+    }
+
+    &.disgust {
+      background-color: $disgust;
+      mix-blend-mode: multiply;
+      margin-left: -1rem;
+      margin-top: -0.5rem;
+    }
+
+    &.fear {
+      background-color: $fear;
+      mix-blend-mode: multiply;
+      margin-left: 1.5rem;
+      margin-top: -0.5rem;
+    }
+
+    &.joy {
+      background-color: $joy;
+      mix-blend-mode: multiply;
+      margin-top: 0.5rem;
+      margin-left: 1.25rem;
+    }
+
+    &.sadness {
+      background-color: $sadness;
+      mix-blend-mode: multiply;
+      margin-top: 0.5rem;
+      margin-left: -0.5rem;
+    }
+  }
+
+  .summary {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 1rem 0;
   }
 }
