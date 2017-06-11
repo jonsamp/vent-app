@@ -3,14 +3,15 @@ import * as actions from './actions'
 
 const sentiment = handleActions({
   [actions.setAnalysis]: (state, { payload }) => {
-    const { analysis } = payload
     return {
       ...state,
-      analysis
+      ...payload
     }
   }
 }, {
-  analysis: {}
+  analysis: {},
+  loading: false,
+  error: null
 })
 
 export default sentiment

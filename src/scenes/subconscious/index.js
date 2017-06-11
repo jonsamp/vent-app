@@ -1,21 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { getSentimentAnalysis } from '../../helpers/api'
 import Button from '../../components/Button'
 
 const propTypes = {}
 
 function SubConscious(props) {
-  const { wordCount, spokenText, content } = props
+  const { wordCount, spokenText, content, getSentimentAnalysis, sentiment } = props
   const wordCountClassName = cx('word-count-btn', {
     'completed-words': wordCount >= 100
   })
 
   const analyzeContent = () => {
     if (wordCount < 100) return;
-
-    console.log(content);
     getSentimentAnalysis(content)
   }
 
@@ -23,6 +20,7 @@ function SubConscious(props) {
     <div className="subconscious">
       <Button className={wordCountClassName} onClick={analyzeContent}>
         {wordCount}/100 words
+        { sentiment.loading ? 'Loading!' : null}
       </Button>
     </div>
   )

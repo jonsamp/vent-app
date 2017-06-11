@@ -9,6 +9,7 @@ import Button from '../../components/Button'
 import { selectTalk, selectWrite } from '../../state/nav/actions'
 import { setTextContent } from '../../state/text/actions'
 import { startListening, stopListening, setTranscriptContent } from '../../state/speech/actions'
+import { getSentimentAnalysis } from '../../state/sentiment/actions'
 
 const mapStateToProps = (state) => {
   return {
@@ -17,7 +18,8 @@ const mapStateToProps = (state) => {
     content: state.text.content,
     wordCount: state.text.wordCount + state.speech.wordCount,
     listening: state.speech.listening,
-    spokenText: state.speech.spokenText
+    spokenText: state.speech.spokenText,
+    sentiment: state.sentiment
   }
 }
 
@@ -28,7 +30,8 @@ const mapDispatchToProps = (dispatch) => {
     setTextContent: content => dispatch(setTextContent({ content })),
     startListening: () => dispatch(startListening()),
     stopListening: () => dispatch(stopListening()),
-    setTranscriptContent: spokenText => dispatch(setTranscriptContent({ spokenText }))
+    setTranscriptContent: spokenText => dispatch(setTranscriptContent({ spokenText })),
+    getSentimentAnalysis: content => dispatch(getSentimentAnalysis({ content }))
   }
 }
 
