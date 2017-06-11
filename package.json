@@ -79,7 +79,7 @@
   },
   "homepage": "https://cra-redux-router-thunk.herokuapp.com",
   "proxy": "http://localhost:3001/",
-  "allowedHost": "https://frozen-retreat-69078.herokuapp.com/",
+  "disableHostCheck": true,
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}"
