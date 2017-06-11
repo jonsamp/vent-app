@@ -25,12 +25,13 @@
 .start-listening {
   margin-bottom: 3rem;
   transition: 0.5s;
+  transform: scale(1.3);
 
   &.currently-listening {
     background-color: $anger;
     border: 2px solid $anger;
-    box-shadow: 0 0 8px 2px rgba(240, 87, 88, 0.2);
-    transform: scale(1.2);
+    box-shadow: 0 0 8px 2px rgba(240, 87, 88, 0.4);
+    transform: scale(1.5);
     transition: 0.5s;
     color: white;
     animation: pulse 2.5s infinite;
@@ -52,6 +53,7 @@
   50% {
     background-color: darken($anger, 15%);
     border: 2px solid darken($anger, 15%);
+    box-shadow: 0 0 8px 4px rgba(240, 87, 88, 0.7);
   }
   100% {
     background-color: $anger;

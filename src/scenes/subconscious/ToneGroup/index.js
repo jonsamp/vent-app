@@ -10,7 +10,7 @@ const propTypes = {
 
 function ToneGroup(props) {
   const { tones, label, extraLabelWidth } = props
-  
+
   const getPercent = (value) => {
     return ((value).toFixed(2) * 100) + '%'
   }
@@ -24,7 +24,7 @@ function ToneGroup(props) {
     return (
       <div className="tone">
         <div className={labelClassName}>
-          <p>{tone.tone_name} ({Math.round(tone.score * 100)}%)</p>
+          <p>{tone.tone_name.toLowerCase()} ({Math.round(tone.score * 100)}%)</p>
         </div>
         <div className="overlayed-bars">
           <div className={toneClassName} style={{ width: `${getPercent(tone.score)}`}} />

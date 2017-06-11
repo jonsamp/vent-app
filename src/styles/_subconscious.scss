@@ -17,7 +17,7 @@
 
   .word-count-btn {
     position: relative;
-    top: -1rem;
+    top: -1.15rem;
     min-width: 50%;
     left: 25%;
     margin: auto;
@@ -56,6 +56,13 @@
 
   .tone-group {
     margin-bottom: 4rem;
+
+    h3 {
+      background-color: $font-color;
+      padding: 0.5rem 1.5rem;
+      border-radius: 99rem;
+      width: 15rem;
+    }
   }
 
   .tone {
@@ -212,6 +219,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin: 1rem 0;
+    margin: 2rem 0;
+    margin-bottom: 3rem;
   }
 }

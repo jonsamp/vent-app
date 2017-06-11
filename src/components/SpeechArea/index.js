@@ -25,7 +25,7 @@ class SpeechArea extends Component {
     const { transcript, browserSupportsSpeechRecognition, setTranscriptContent, content, listening, startRecognition, stopRecognition } = this.props
 
     return (
-      <p className="text-area">
+      <p className="text-area speech-area">
         {content}
       </p>
     )

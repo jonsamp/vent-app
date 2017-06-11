@@ -5,9 +5,14 @@
   border: none;
   resize: none;
   font-size: 1.35rem;
-  line-height: 1.8rem;
+  line-height: 1.9rem;
   outline: none;
   font-family: 'Crimson', serif;
+  overflow: auto;
+
+  &.speech-area {
+    height: 60vh;
+  }
 
   &.speech {
     cursor: not-allowed;

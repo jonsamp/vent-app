@@ -14,7 +14,6 @@ function ToneOrb(props) {
     const orbClassName = cx('orb', tone.tone_id)
 
     const size = (tone.score).toFixed(2) * 9
-    console.log(size);
 
     return <div
       key={key + tone.tone_id}

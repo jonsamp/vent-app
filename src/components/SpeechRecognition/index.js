@@ -64,7 +64,7 @@ export default function SpeechRecognition(WrappedComponent) {
     }
 
     getNewTranscript(event) {
-      const { speechRecognition } = this.props
+      const { speechRecognition, content } = this.props
       let finalTranscript = speechRecognition.finalTranscript
       let interimTranscript = ''
       for (let i = event.resultIndex; i < event.results.length; ++i) {

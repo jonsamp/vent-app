@@ -7,9 +7,6 @@ import Spinner from '../../components/Spinner'
 import ToneGroup from './ToneGroup'
 import ToneOrb from './ToneOrb'
 
-// DEV
-import mockSentiment from './mockSentiment'
-
 const propTypes = {
   wordCount: PropTypes.number,
   content: PropTypes.string,
@@ -19,11 +16,6 @@ const propTypes = {
 
 function SubConscious(props) {
   const { wordCount, content, getSentimentAnalysis, toggleSubsonsciousModal, sentiment } = props
-
-  // DEV: put sentiment back in props when finished
-  // const sentiment = {
-  //   analysis: mockSentiment
-  // }
 
   const wordCountClassName = cx('word-count-btn', {
     'completed-words': wordCount >= 100
@@ -72,15 +64,15 @@ function SubConscious(props) {
           </div>
           <ToneGroup
             tones={emotionalTones}
-            label="Emotional Tones"
+            label="emotional tones"
           />
           <ToneGroup
             tones={languageTones}
-            label="Language Tones"
+            label="language tones"
           />
           <ToneGroup
             tones={socialTones}
-            label="Social Tones"
+            label="social tones"
             extraLabelWidth
           />
         </div> :
