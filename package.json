@@ -36,7 +36,8 @@
     "eject": "react-scripts eject",
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js start-server",
-    "build": "npm run build-css && react-scripts build"
+    "build-all": "npm run build-css && react-scripts build",
+    "build": "react-scripts build"
   },
   "homepage": "https://cra-redux-router-thunk.herokuapp.com",
   "proxy": "http://localhost:3001/"
