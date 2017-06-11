@@ -8,6 +8,7 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "enzyme": "^2.8.2",
+    "express": "^4.15.3",
     "install": "^0.10.1",
     "node-sass-chokidar": "^0.0.2",
     "npm-run-all": "^4.0.2",
@@ -19,19 +20,24 @@
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "react-router-redux": "next",
+    "react-speech-recognition": "^1.0.1",
     "redux": "^3.6.0",
     "redux-actions": "^2.0.3",
     "redux-thunk": "^2.2.0",
-    "sanitize.css": "^5.0.0"
+    "sanitize.css": "^5.0.0",
+    "superagent": "^3.5.2",
+    "watson-developer-cloud": "^2.32.1"
   },
   "scripts": {
     "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
+    "start-server": "node ./server/index.js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "start-js": "react-scripts start",
-    "start": "npm-run-all -p watch-css start-js",
+    "start": "npm-run-all -p watch-css start-js start-server",
     "build": "npm run build-css && react-scripts build"
   },
-  "homepage": "https://cra-redux-router-thunk.herokuapp.com"
+  "homepage": "https://cra-redux-router-thunk.herokuapp.com",
+  "proxy": "http://localhost:3001/"
 }

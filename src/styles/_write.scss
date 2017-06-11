@@ -8,4 +8,8 @@
   line-height: 1.8rem;
   outline: none;
   font-family: 'Crimson', serif;
+
+  &.speech {
+    cursor: not-allowed;
+  }
 }

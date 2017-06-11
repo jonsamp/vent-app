@@ -10,10 +10,12 @@ body {
   color: $primary;
   font-family: 'Nunito', sans-serif;
   padding: 2rem;
+  max-width: 60rem;
+  margin: auto;
 }
 
 .logo {
-  width: 6rem;
+  width: 5rem;
 }
 
 .displayFlexHorizontal {

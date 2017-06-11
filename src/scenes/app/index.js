@@ -8,27 +8,27 @@ import Logo from '../../images/vent-logo-wiggly.svg'
 import Button from '../../components/Button'
 import { selectTalk, selectWrite } from '../../state/nav/actions'
 import { setTextContent } from '../../state/text/actions'
+import { startListening, stopListening, setTranscriptContent } from '../../state/speech/actions'
 
 const mapStateToProps = (state) => {
   return {
     talk: state.nav.talk,
     write: state.nav.write,
     content: state.text.content,
-    wordCount: state.text.wordCount
+    wordCount: state.text.wordCount + state.speech.wordCount,
+    listening: state.speech.listening,
+    spokenText: state.speech.spokenText
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    selectTalk: () => {
-      dispatch(selectTalk())
-    },
-    selectWrite: () => {
-      dispatch(selectWrite())
-    },
-    setTextContent: (content) => {
-      dispatch(setTextContent({ content }))
-    }
+    selectTalk: () => dispatch(selectTalk()),
+    selectWrite: () => dispatch(selectWrite()),
+    setTextContent: content => dispatch(setTextContent({ content })),
+    startListening: () => dispatch(startListening()),
+    stopListening: () => dispatch(stopListening()),
+    setTranscriptContent: spokenText => dispatch(setTranscriptContent({ spokenText }))
   }
 }
 
@@ -61,10 +61,10 @@ const App = (props) => (
 
     <main>
       {props.talk ?
-        <Talk /> :
-        <Write onChange={props.setTextContent} content={props.content}/>
+        <Talk {...props} /> :
+        <Write {...props} />
       }
-      <SubConscious wordCount={props.wordCount} />
+      <SubConscious {...props} wordCount={props.wordCount} />
     </main>
   </div>
 )

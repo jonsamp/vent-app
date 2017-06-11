@@ -7,9 +7,9 @@ const propTypes = {
 }
 
 function Write(props) {
-  const { content } = props
+  const { content, setTextContent } = props
   const onChange = (e) => {
-    props.onChange(e.target.value)
+    setTextContent(e.target.value)
   }
 
   return (
