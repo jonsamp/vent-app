@@ -16,17 +16,29 @@ const speech = handleActions({
   },
   [actions.setTranscriptContent]: (state, { payload }) => {
     const { spokenText } = payload
-    const wordCount = spokenText.trim() ? spokenText.trim().split(' ').length : 0
     return {
       ...state,
-      spokenText,
-      wordCount
+      spokenText
+    }
+  },
+  [actions.setSpeechRecognition]: (state, { payload }) => {
+    const { speechRecognition } = payload
+    return {
+      ...state,
+      speechRecognition: {
+        ...state.speechRecognition,
+        ...speechRecognition
+      }
     }
   }
 }, {
   listening: false,
   spokenText: '',
-  wordCount: 0
+  speechRecognition: {
+    finalTranscript: '',
+    interimTranscript: '',
+    browserSupportsSpeechRecognition: false
+  }
 })
 
 export default speech
