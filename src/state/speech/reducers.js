@@ -14,13 +14,6 @@ const speech = handleActions({
       listening: false
     }
   },
-  [actions.setTranscriptContent]: (state, { payload }) => {
-    const { spokenText } = payload
-    return {
-      ...state,
-      spokenText
-    }
-  },
   [actions.setSpeechRecognition]: (state, { payload }) => {
     const { speechRecognition } = payload
     return {
@@ -33,11 +26,9 @@ const speech = handleActions({
   }
 }, {
   listening: false,
-  spokenText: '',
   speechRecognition: {
     finalTranscript: '',
-    interimTranscript: '',
-    browserSupportsSpeechRecognition: false
+    interimTranscript: ''
   }
 })
 

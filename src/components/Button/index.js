@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import { omit } from 'lodash'
 
 const propTypes = {
   onClick: PropTypes.func,
@@ -11,7 +12,9 @@ function Button(props) {
   const className = cx('Button', props.className, {
     'active': props.active
   })
-  return <button {...props} className={className}>{props.children}</button>
+  const propsToTransfer = omit(props, 'active')
+  
+  return <button {...propsToTransfer} className={className}>{props.children}</button>
 }
 
 Button.propTypes = propTypes

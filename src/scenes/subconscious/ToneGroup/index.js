@@ -22,7 +22,7 @@ function ToneGroup(props) {
     })
 
     return (
-      <div className="tone">
+      <div className="tone" key={tone.tone_name + tone.tone_id}>
         <div className={labelClassName}>
           <p>{tone.tone_name.toLowerCase()} ({Math.round(tone.score * 100)}%)</p>
         </div>

@@ -5,7 +5,7 @@
   position: fixed;
   bottom: 0;
   border-radius: 1rem 1rem 0 0;
-  background-color: $primary;
+  background-color: $gray-1;
   transition: 0.5s ease-in;
   color: white;
   padding: 0 4rem 2rem 4rem;
@@ -21,6 +21,8 @@
     min-width: 50%;
     left: 25%;
     margin: auto;
+    color: $gray-2;
+    border-color: $gray-1;
 
     &:hover {
       box-shadow: none;
@@ -29,8 +31,9 @@
   }
 
   .completed-words {
-    background-color: $fear;
-    border: 2px solid $fear;
+    background-color: darken($fear, 10%);
+    border: 2px solid darken($fear, 10%);
+    filter: saturate(50%);
     color: white;
     transition: 0.15s;
 
@@ -46,6 +49,7 @@
     box-shadow: 0 0 8px 2px rgba(0,0,0,.2);
     overflow: auto;
     padding-bottom: 5rem;
+    background-color: $primary;
 
     .word-count-btn {
       height: 2.16rem;

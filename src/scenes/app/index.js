@@ -8,7 +8,7 @@ import Logo from '../../images/vent-logo-wiggly.svg'
 import Button from '../../components/Button'
 import { selectTalk, selectWrite } from '../../state/nav/actions'
 import { setTextContent } from '../../state/text/actions'
-import { startListening, stopListening, setTranscriptContent, setSpeechRecognition } from '../../state/speech/actions'
+import { startListening, stopListening, setSpeechRecognition } from '../../state/speech/actions'
 import { getSentimentAnalysis, toggleSubsonsciousModal } from '../../state/sentiment/actions'
 
 const mapStateToProps = (state) => {
@@ -31,7 +31,6 @@ const mapDispatchToProps = (dispatch) => {
     setTextContent: content => dispatch(setTextContent({ content })),
     startListening: () => dispatch(startListening()),
     stopListening: () => dispatch(stopListening()),
-    setTranscriptContent: spokenText => dispatch(setTranscriptContent({ spokenText })),
     getSentimentAnalysis: content => dispatch(getSentimentAnalysis({ content })),
     toggleSubsonsciousModal: () => dispatch(toggleSubsonsciousModal()),
     setSpeechRecognition: speechRecognition => dispatch(setSpeechRecognition({ speechRecognition }))

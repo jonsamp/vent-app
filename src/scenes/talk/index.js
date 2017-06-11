@@ -5,17 +5,20 @@ import Button from '../../components/Button'
 import Placeholder from '../../images/placeholder.svg'
 import SpeechArea from '../../components/SpeechArea'
 
-const propTypes = {}
+const propTypes = {
+  stopListening: PropTypes.func,
+  startListening: PropTypes.func,
+  setTextContent: PropTypes.func,
+  listening: PropTypes.bool,
+  content: PropTypes.string
+}
 
 function Talk(props) {
 
-  const { stopListening, startListening, listening, setTextContent, setTranscriptContent, content, spokenText } = props
+  const { stopListening, startListening, listening, content } = props
 
   const toggleListening = () => {
-    if (listening) {
-      return stopListening()
-    }
-
+    if (listening) return stopListening()
     return startListening()
   }
 
@@ -25,7 +28,11 @@ function Talk(props) {
 
   return (
     <div className="displayFlexCenter">
-      <Button active className={listeningButtonClassName} onClick={toggleListening}>
+      <Button
+        active
+        className={listeningButtonClassName}
+        onClick={toggleListening}
+        >
         {listening ? 'listening...' : 'start venting'}
       </Button>
       {listening || content ?

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { debounce } from 'core-decorators'
 
 export default function SpeechRecognition(WrappedComponent) {
   return class SpeechRecognitionContainer extends Component {
@@ -64,7 +63,7 @@ export default function SpeechRecognition(WrappedComponent) {
     }
 
     getNewTranscript(event) {
-      const { speechRecognition, content } = this.props
+      const { speechRecognition } = this.props
       let finalTranscript = speechRecognition.finalTranscript
       let interimTranscript = ''
       for (let i = event.resultIndex; i < event.results.length; ++i) {
