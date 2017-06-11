@@ -35,7 +35,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "start-js": "react-scripts start",
-    "start": "npm-run-all -p watch-css start-js start-server",
+    "start-dev": "npm-run-all -p watch-css start-js start-server",
+    "start": "npm-run-all -p start-js start-server",
     "build-all": "npm run build-css && react-scripts build",
     "build": "react-scripts build"
   },
