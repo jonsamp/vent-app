@@ -77,9 +77,9 @@
     "build-all": "npm run build-css && node scripts/build.js",
     "build": "node scripts/build.js"
   },
-  "homepage": "https://cra-redux-router-thunk.herokuapp.com",
+  "homepage": "https://frozen-retreat-69078.herokuapp.com",
   "proxy": "http://localhost:3001/",
-  "disableHostCheck": true,
+  "allowedHost": "https://frozen-retreat-69078.herokuapp.com",
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}"

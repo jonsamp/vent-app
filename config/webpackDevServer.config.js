@@ -58,6 +58,7 @@ module.exports = function(proxy, allowedHost) {
       disableDotRule: true,
     },
     public: allowedHost,
+    disableHostCheck: true,
     proxy,
     setup(app) {
       // This lets us open files from the runtime error overlay.
