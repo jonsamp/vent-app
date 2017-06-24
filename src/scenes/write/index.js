@@ -18,7 +18,7 @@ function Write(props) {
   }
 
   return (
-    <textarea className={textAreaClassName} placeholder="spontaneous, anonymous, reflection" onChange={onChange} value={content} />
+    <textarea className={textAreaClassName} placeholder="spontaneous self reflection" onChange={onChange} value={content} />
   )
 }
 
