@@ -84,8 +84,9 @@ const App = (props) => {
       <div className={appClassName}>
         <header className="nav displayFlexHorizontal">
           <h2>vent</h2>
-          <div>
+          <div className="btn-group">
             {renderThemeButtons}
+            <div className="divider" />
             {renderBackgroundButtons}
           </div>
         </header>

@@ -21,6 +21,18 @@
   flex-direction: column;
   align-items: center;
 
+  .btn-group {
+    display: flex;
+  }
+
+  .divider {
+    width: 2px;
+    background-color: white;
+    opacity: 0.6;
+    height: 2rem;
+    margin-left: 1rem;
+  }
+
   &.tonal {
     background: url('	https://s3.amazonaws.com/vent-app/tonal.jpg') center center no-repeat;
     background-size: cover;
