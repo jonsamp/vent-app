@@ -1,22 +1,24 @@
 import { handleActions } from 'redux-actions'
 import * as actions from './actions'
 
+const defaultState = {
+  backgroundUrl: 'tonal',
+  theme: 'light'
+}
+
 const nav = handleActions({
-  [actions.selectTalk]: (state, { payload }) => {
+  [actions.backgroundSelected]: (state, { payload: { backgroundUrl } }) => {
     return {
-      talk: true,
-      write: false
+      ...state,
+      backgroundUrl
     }
   },
-  [actions.selectWrite]: (state, { payload }) => {
+  [actions.themeSelected]: (state, { payload: { theme } }) => {
     return {
-      talk: false,
-      write: true
+      ...state,
+      theme
     }
   }
-}, {
-  talk: true,
-  write: false
-})
+}, defaultState)
 
 export default nav

@@ -24,8 +24,9 @@ function SubConscious(props) {
     'opened': sentiment.modalOpen
   })
 
-  const analyzeContent = () => {
-    if (wordCount < 100) return;
+  const analyzeContent = (e) => {
+    e.preventDefault()
+    if (wordCount < 100) return
     getSentimentAnalysis(content)
   }
 

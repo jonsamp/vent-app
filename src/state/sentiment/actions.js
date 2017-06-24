@@ -12,14 +12,13 @@ export function getSentimentAnalysis({ content }) {
         if (error) {
           console.log('SERVER ERROR: ', error)
         }
-        setTimeout(() => {
-          dispatch(setAnalysis({
-            analysis: response.body,
-            error: error,
-            loading: false
-          }))
-          dispatch(toggleSubsonsciousModal())
-        }, 500)
+        
+        dispatch(setAnalysis({
+          analysis: response.body,
+          error: error,
+          loading: false
+        }))
+        dispatch(toggleSubsonsciousModal())
       })
   }
 }

@@ -1,6 +1,13 @@
 import { handleActions } from 'redux-actions'
 import * as actions from './actions'
 
+const defaultState = {
+  analysis: {},
+  loading: false,
+  error: null,
+  modalOpen: false
+}
+
 const sentiment = handleActions({
   [actions.setAnalysis]: (state, { payload }) => {
     return {
@@ -14,11 +21,6 @@ const sentiment = handleActions({
       modalOpen: !state.modalOpen
     }
   }
-}, {
-  analysis: {},
-  loading: false,
-  error: null,
-  modalOpen: false
-})
+}, defaultState)
 
 export default sentiment

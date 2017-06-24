@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 
 const propTypes = {
   content: PropTypes.string,
@@ -8,12 +9,16 @@ const propTypes = {
 
 function Write(props) {
   const { content, setTextContent } = props
+  const textAreaClassName = cx('text-area', {
+    'dark-theme': props.theme === 'dark',
+    'light-theme': props.theme === 'light',
+  })
   const onChange = (e) => {
     setTextContent(e.target.value)
   }
 
   return (
-    <textarea className="text-area" placeholder="begin writing" onChange={onChange} value={content} />
+    <textarea className={textAreaClassName} placeholder="spontaneous, anonymous, reflection" onChange={onChange} value={content} />
   )
 }
 

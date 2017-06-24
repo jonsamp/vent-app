@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const SpinnerIcon = (props) => {
   return (
@@ -30,7 +30,7 @@ const SpinnerIcon = (props) => {
       <path opacity=".32" d="M12.1 661.1L209 695.8c-5.9 33.8-9 68.7-9 104.2H0c0-47.4 4.1-93.8 12-138.9h.1z" />
       <path opacity=".28" d="M209 904.2L12.1 938.9H12C4.1 893.8 0 847.4 0 800h200c0 35.5 3.1 70.4 9 104.2z" />
     </svg>
-  );
-};
+  )
+}
 
-export default SpinnerIcon;
+export default SpinnerIcon

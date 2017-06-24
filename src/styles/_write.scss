@@ -1,20 +1,32 @@
 .text-area {
-  width: 100%;
+  width: 95vw;
+  max-width: 56rem;
   height: 70vh;
-  padding-bottom: 10rem;
   border: none;
   resize: none;
   font-size: 1.35rem;
   line-height: 1.9rem;
   outline: none;
-  font-family: 'Crimson', serif;
+  font-family: 'Source Serif Pro', serif;
+  letter-spacing: 0.02rem;
   overflow: auto;
+  background-color: rgba(255,255,255,0.35);
+  color: $primary;
+  padding: 2.5rem 3rem;
+  transition: 0.5s;
+  border-radius: 0.5rem;
 
-  &.speech-area {
-    height: 60vh;
+  &::-webkit-input-placeholder {
+    color: rgba(0,0,0,0.4);
   }
 
-  &.speech {
-    cursor: not-allowed;
+  &.dark-theme {
+    background-color: rgba(0,0,0,0.6);
+    color: white;
+    transition: 0.5s;
+
+    &::-webkit-input-placeholder {
+      color: rgba(255,255,255,0.8);
+    }
   }
 }

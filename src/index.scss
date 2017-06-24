@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Nunito:700');
+@import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro|Nunito:700');
 @import './styles/colors';
 @import './styles/_spinner';
 @import './styles/nav';
@@ -6,19 +6,32 @@
 @import './styles/write';
 @import './styles/subconscious';
 
-body {
+.app {
   font-size: 18px;
   color: $primary;
   font-family: 'Nunito', sans-serif;
   padding: 2rem;
-  max-width: 60rem;
+  padding-top: 0rem;
   margin: auto;
-}
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-.logo {
-  width: 5rem;
-  position: relative;
-  margin-left: -1rem;
+  &.tonal {
+    background: url('	https://s3.amazonaws.com/vent-app/tonal.jpg') center center no-repeat;
+    background-size: cover;
+    transition: 0.5s;
+  }
+
+  &.winter {
+    background: url('	https://s3.amazonaws.com/vent-app/winter.png') center center no-repeat;
+    background-size: cover;
+    transition: 0.5s;
+  }
 }
 
 .displayFlexHorizontal {

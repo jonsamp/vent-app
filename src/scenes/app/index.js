@@ -1,20 +1,17 @@
-import React from 'react';
+import React from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 import { connect } from 'react-redux'
-import Talk from '../talk'
 import Write from '../write'
 import SubConscious from '../subconscious'
-import Logo from '../../images/vent-logo-wiggly.svg'
-import Button from '../../components/Button'
-import { selectTalk, selectWrite } from '../../state/nav/actions'
+import { backgroundSelected, themeSelected } from '../../state/nav/actions'
 import { setTextContent } from '../../state/text/actions'
-import { startListening, stopListening, setSpeechRecognition } from '../../state/speech/actions'
 import { getSentimentAnalysis, toggleSubsonsciousModal } from '../../state/sentiment/actions'
 
 const mapStateToProps = (state) => {
   return {
-    talk: state.nav.talk,
-    write: state.nav.write,
+    backgroundUrl: state.nav.backgroundUrl,
+    theme: state.nav.theme,
     content: state.text.content,
     wordCount: state.text.wordCount,
     listening: state.speech.listening,
@@ -26,53 +23,80 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    selectTalk: () => dispatch(selectTalk()),
-    selectWrite: () => dispatch(selectWrite()),
+    onBackgroundSelected: backgroundUrl => dispatch(backgroundSelected({ backgroundUrl })),
+    onThemeSelected: theme => dispatch(themeSelected({ theme })),
     setTextContent: content => dispatch(setTextContent({ content })),
-    startListening: () => dispatch(startListening()),
-    stopListening: () => dispatch(stopListening()),
     getSentimentAnalysis: content => dispatch(getSentimentAnalysis({ content })),
     toggleSubsonsciousModal: () => dispatch(toggleSubsonsciousModal()),
-    setSpeechRecognition: speechRecognition => dispatch(setSpeechRecognition({ speechRecognition }))
   }
 }
 
 const propTypes = {
-  selectWrite: PropTypes.func,
-  selectTalk: PropTypes.func
+  backgroundUrl: PropTypes.string,
+  theme: PropTypes.string,
+  wordCount: PropTypes.number,
+  onThemeSelected: PropTypes.func,
+  onBackgroundSelected: PropTypes.func
 }
 
-const App = (props) => (
-  <div>
-    <header className="nav displayFlexHorizontal">
-      <img src={Logo} className="logo" alt="logo" />
-      <div>
-        <Button
-          className="button-space"
-          active={props.talk}
-          onClick={props.selectTalk}
-          >
-          talk
-        </Button>
-        <Button
-          className="button-space"
-          active={props.write}
-          onClick={props.selectWrite}
-          >
-          write
-        </Button>
-      </div>
-    </header>
+const App = (props) => {
+    const appClassName = cx('app', props.backgroundUrl)
 
-    <main>
-      {props.talk ?
-        <Talk {...props} /> :
-        <Write {...props} />
-      }
-      <SubConscious {...props} wordCount={props.wordCount} />
-    </main>
-  </div>
-)
+    const setTheme = (e) => {
+      props.onThemeSelected(e.target.name)
+    }
+
+    const setBackground = (e) => {
+      props.onBackgroundSelected(e.target.name)
+    }
+
+    const renderThemeButtons = ['dark', 'light'].map((theme) => {
+      const themeClassName = cx('theme-btn', theme, {
+        'active': theme === props.theme
+      })
+
+      return (
+        <button
+          className={themeClassName}
+          onClick={setTheme}
+          name={theme}
+          >
+        </button>
+      )
+    })
+
+    const renderBackgroundButtons = ['tonal', 'winter'].map((background) => {
+      const buttonClassName = cx('background-btn', background, {
+        'active': background === props.backgroundUrl
+      })
+
+      return (
+        <button
+          className={buttonClassName}
+          onClick={setBackground}
+          name={background}
+          >
+        </button>
+      )
+    })
+
+    return (
+      <div className={appClassName}>
+        <header className="nav displayFlexHorizontal">
+          <h2>vent</h2>
+          <div>
+            {renderThemeButtons}
+            {renderBackgroundButtons}
+          </div>
+        </header>
+
+        <main>
+          <Write {...props} />
+          <SubConscious {...props} wordCount={props.wordCount} />
+        </main>
+      </div>
+    )
+}
 
 App.propTypes = propTypes
 

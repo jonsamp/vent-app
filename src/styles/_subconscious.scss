@@ -4,8 +4,8 @@
   height: 5%;
   position: fixed;
   bottom: 0;
-  border-radius: 1rem 1rem 0 0;
-  background-color: $gray-1;
+  border-radius: 0.5rem 0.5rem 0 0;
+  background-color: rgba(0,0,0,0.25);
   transition: 0.5s ease-in;
   color: white;
   padding: 0 4rem 2rem 4rem;
@@ -33,7 +33,7 @@
   .completed-words {
     background-color: darken($fear, 10%);
     border: 2px solid darken($fear, 10%);
-    filter: saturate(50%);
+    filter: saturate(40%);
     color: white;
     transition: 0.15s;
 
@@ -44,7 +44,7 @@
   }
 
   &.opened {
-    height: 85%;
+    height: 95%;
     transition: 0.35s cubic-bezier(0.475, 0.055, 0.750, 0.750);
     box-shadow: 0 0 8px 2px rgba(0,0,0,.2);
     overflow: auto;
@@ -70,7 +70,6 @@
   }
 
   .tone {
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -91,19 +90,19 @@
 
     .overlay {
       position: relative;
-      top: 0.75rem;
+      top: 0.375rem;
       z-index: 1;
     }
 
     .underlay {
       position: relative;
-      top: -0.75rem;
+      top: -0.375rem;
       z-index: 0;
     }
 
     .bar {
       width: 100%;
-      height: 1.5rem;
+      height: 0.75rem;
       background-color: $font-color;
       border-radius: 99rem
     }
@@ -172,10 +171,10 @@
     height: 10rem;
     border-radius: 100%;
     position: relative;
-    margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
   }
 
   .orb {
@@ -187,28 +186,25 @@
     &.anger {
       background-color: $anger;
       mix-blend-mode: multiply;
-      margin-top: -1rem;
+      transform: translate(0%, -50%);
     }
 
     &.disgust {
       background-color: $disgust;
       mix-blend-mode: multiply;
-      margin-left: -1rem;
-      margin-top: -0.5rem;
+      transform: translate(-50%, 0%);
     }
 
     &.fear {
       background-color: $fear;
       mix-blend-mode: multiply;
-      margin-left: 1.5rem;
-      margin-top: -0.5rem;
+      transform: translate(0%, 50%);
     }
 
     &.joy {
       background-color: $joy;
       mix-blend-mode: multiply;
-      margin-top: 0.5rem;
-      margin-left: 1.25rem;
+      transform: translate(-50%, -50%);
     }
 
     &.sadness {
