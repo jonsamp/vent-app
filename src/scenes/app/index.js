@@ -14,9 +14,7 @@ const mapStateToProps = (state) => {
     theme: state.nav.theme,
     content: state.text.content,
     wordCount: state.text.wordCount,
-    spokenText: state.speech.spokenText,
-    sentiment: state.sentiment,
-    speechRecognition: state.speech.speechRecognition
+    sentiment: state.sentiment
   }
 }
 
