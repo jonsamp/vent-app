@@ -14,4 +14,4 @@ build
 npm-debug.log
 
 # server
-server/index.js
+# server/index.js
