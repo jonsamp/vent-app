@@ -1,9 +1,5 @@
 const express = require('express')
 const app = express()
-const AWS = require('aws-sdk');
-AWS.config.update({accessKeyId: 'AKIAJ2OANZ5IL7EX4EQQ', secretAccessKey: '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'});
-AWS.config.update({region: 'us-east-1'});
-const dd = new AWS.DynamoDB();
 
 const ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
 const tone_analyzer = new ToneAnalyzerV3({
@@ -16,24 +12,6 @@ app.get('/tone/:text', function (request, response) {
 
   console.log('Analyzing tone of: ');
   console.log(request.params.text);
-
-  var tableName = 'vent';
-  const putItem = function(content) {
-     var item = {
-        'date': { 'S': new Date().getTime().toString() },
-        'content': { 'S': content || 'N/A' }
-      };
-
-      dd.putItem({
-         'TableName': tableName,
-         'Item': item
-      }, function(err, data) {
-         if (err) console.log(err);
-         if (!err) console.log('Saved to dynamo successfully');
-      });
-  };
-
-  putItem(request.params.text)
 
 //   response.send({
 //   "document_tone": {
