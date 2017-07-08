@@ -33,6 +33,7 @@ function SubConscious(props) {
   const emotionalTones = get(sentiment, 'analysis.document_tone.tone_categories[0].tones')
   const languageTones = get(sentiment, 'analysis.document_tone.tone_categories[1].tones')
   const socialTones = get(sentiment, 'analysis.document_tone.tone_categories[2].tones')
+  const sentenceTones = get(sentiment, 'analysis.sentences_tone')
 
   const mostFeltTone = () => {
     if (emotionalTones) {
@@ -41,6 +42,25 @@ function SubConscious(props) {
       })
       return sortedTones[0].tone_name.toLowerCase()
     }
+  }
+
+  const getSentenceMostEmotion = (emotion) => {
+    const emotionMap = {
+      anger: 0,
+      disgust: 1,
+      fear: 2,
+      joy: 3,
+      sadness: 4
+    }
+
+    return sentenceTones.map((sentence) =>  {
+      return {
+        text: sentence.text,
+        score: sentence.tone_categories[0].tones[emotionMap[emotion]].score
+      }
+    }).sort((a, b) => {
+      return b.score - a.score
+    })
   }
 
   return (
@@ -66,14 +86,18 @@ function SubConscious(props) {
           <ToneGroup
             tones={emotionalTones}
             label="emotional tones"
+            getSentenceMostEmotion={getSentenceMostEmotion}
+            sentenceAnalysis
           />
           <ToneGroup
             tones={languageTones}
             label="language tones"
+            getSentenceMostEmotion={getSentenceMostEmotion}
           />
           <ToneGroup
             tones={socialTones}
             label="social tones"
+            getSentenceMostEmotion={getSentenceMostEmotion}
             extraLabelWidth
           />
         </div> :

@@ -71,17 +71,26 @@
 
   .tone {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
+    margin-bottom: 0.5rem;
 
     .tone-title {
       flex: 1.5;
       text-align: right;
       padding-right: 1rem;
 
+      p {
+        margin-top: 0;
+      }
+
       &.extra-label-width {
         flex: 2.5;
       }
+    }
+
+    .setence-emotion {
+      margin-bottom: 2rem;
+      opacity: 0.5;
     }
 
     .overlayed-bars {

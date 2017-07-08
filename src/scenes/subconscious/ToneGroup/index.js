@@ -5,11 +5,12 @@ import cx from 'classnames'
 const propTypes = {
   tones: PropTypes.array,
   label: PropTypes.string,
-  extraLabelWidth: PropTypes.bool
+  extraLabelWidth: PropTypes.bool,
+  getSentenceMostEmotion: PropTypes.func
 }
 
 function ToneGroup(props) {
-  const { tones, label, extraLabelWidth } = props
+  const { tones, label, extraLabelWidth, getSentenceMostEmotion, sentenceAnalysis = false } = props
 
   const getPercent = (value) => {
     return ((value).toFixed(2) * 100) + '%'
@@ -29,6 +30,13 @@ function ToneGroup(props) {
         <div className="overlayed-bars">
           <div className={toneClassName} style={{ width: `${getPercent(tone.score)}`}} />
           <div className="bar underlay" />
+          {
+            sentenceAnalysis ?
+              <p className="setence-emotion">
+                "{getSentenceMostEmotion(tone.tone_id)[0].text}"
+              </p> :
+              null
+          }
         </div>
       </div>
     )

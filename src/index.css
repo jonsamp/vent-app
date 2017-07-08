@@ -149,14 +149,19 @@
       width: 15rem; }
   .subconscious .tone {
     display: flex;
-    align-items: center;
-    justify-content: space-between; }
+    justify-content: flex-end;
+    margin-bottom: 0.5rem; }
     .subconscious .tone .tone-title {
       flex: 1.5;
       text-align: right;
       padding-right: 1rem; }
+      .subconscious .tone .tone-title p {
+        margin-top: 0; }
       .subconscious .tone .tone-title.extra-label-width {
         flex: 2.5; }
+    .subconscious .tone .setence-emotion {
+      margin-bottom: 2rem;
+      opacity: 0.5; }
     .subconscious .tone .overlayed-bars {
       flex: 6; }
     .subconscious .tone .overlay {
