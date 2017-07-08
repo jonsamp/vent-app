@@ -89,7 +89,7 @@
   .text-area::-webkit-input-placeholder {
     color: rgba(0, 0, 0, 0.4); }
   .text-area.dark-theme {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.8);
     color: white;
     transition: 0.5s; }
     .text-area.dark-theme::-webkit-input-placeholder {
