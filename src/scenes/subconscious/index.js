@@ -30,10 +30,10 @@ function SubConscious(props) {
     getSentimentAnalysis(content)
   }
 
-  const emotionalTones = get(sentiment, 'analysis.document_tone.tone_categories[0].tones')
-  const languageTones = get(sentiment, 'analysis.document_tone.tone_categories[1].tones')
-  const socialTones = get(sentiment, 'analysis.document_tone.tone_categories[2].tones')
-  const sentenceTones = get(sentiment, 'analysis.sentences_tone')
+  const emotionalTones = get(sentiment, 'analysis.document_tone.tone_categories[0].tones') || []
+  const languageTones = get(sentiment, 'analysis.document_tone.tone_categories[1].tones') || []
+  const socialTones = get(sentiment, 'analysis.document_tone.tone_categories[2].tones') || []
+  const sentenceTones = get(sentiment, 'analysis.sentences_tone') || []
 
   const mostFeltTone = () => {
     if (emotionalTones) {

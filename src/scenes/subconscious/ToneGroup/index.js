@@ -31,7 +31,7 @@ function ToneGroup(props) {
           <div className={toneClassName} style={{ width: `${getPercent(tone.score)}`}} />
           <div className="bar underlay" />
           {
-            sentenceAnalysis ?
+            sentenceAnalysis && getSentenceMostEmotion(tone.tone_id)[0] ?
               <p className="setence-emotion">
                 "{getSentenceMostEmotion(tone.tone_id)[0].text}"
               </p> :
